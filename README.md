@@ -4,7 +4,7 @@
 
 Kubernetes is a tool for running diferent containes togather.
 
-Kubernete automaticaly:
+Kubernetes automaticaly:
 
 - creates the containers
 - manages the containers
