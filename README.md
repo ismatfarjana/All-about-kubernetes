@@ -2,7 +2,7 @@
 
 ## Ans:
 
-Kubernete is a tool for running diferent containes togather.
+Kubernetes is a tool for running diferent containes togather.
 
 Kubernete automaticaly:
 
