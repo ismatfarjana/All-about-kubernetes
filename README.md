@@ -94,11 +94,17 @@ So , when the **event-bus** service is created, rather then going to different s
 
 ### commands:
 
-| Column 1                                       | Column 2                          | Column 3                             |
-| ---------------------------------------------- | --------------------------------- | ------------------------------------ |
-| to create an object with kubernetes            | **`kubectl apply -f posts.yaml`** |                                      |
-| to see all the pods running inside the cluster | **`kubectl get pods`**            | ![](https://i.imgur.com/YSMLHhp.png) |
-|                                                |
+| Column 1                                       | Column 2                                   | Column 3                                                                                                                                                                                               |
+| ---------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| to create an object with kubernetes            | **`kubectl apply -f posts.yaml`**          | tells kubernetes to process the config                                                                                                                                                                 |
+| to see all the pods running inside the cluster | **`kubectl get pods`**                     | information about all the running pods![](https://i.imgur.com/YSMLHhp.png)                                                                                                                             |
+| to run a command inside a container            | **`kubectl exec -it [pod_name] -- [cmd]`** | (startup a shell inside a container that is bein graninside the pod, add `sh` at the end ).execute a given command in a running pod ![](https://i.imgur.com/bT3hUCX.png) write `exit` to end the shell |
+| to print all the logs tied to a container      | **`kubectl logs [pod_name]`**              | prints logs from given pod ![](https://i.imgur.com/YhCom2d.png)                                                                                                                                        |
+| to get the information about running pod       | **`kubectl describe pod [pod_name]`**      | it will help debugging, for that look at the events log ![](https://i.imgur.com/Z1GyL7h.png)                                                                                                           |
+
+|
+|to delete a pod| **`kubectl delete pod [pod_name]`**||
+||||
 
 ---
 
