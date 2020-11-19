@@ -74,3 +74,20 @@ set prefference kubenetes enable in prefferenace
 So when <span style="color:orange">**_Service_**</span> is created to kuberbetes, it takes the request and forwords it to appropriate service
 
 So , when the **event-bus** service is created, rather then going to different services(which is very confusing) it will reach out to <span style="color:orange">**_Service_**</span> and <span style="color:orange">**_Service_**</span> will forward the request to acqurate <span style="color:green">pod</span> / container
+
+# Terminology
+
+| Column 1               | Column 2                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| **Kubernetes cluster** | a collection of nodes and a master to manage the nodes                           | Text |
+| **Node**               | a virtual machine that runs the containers                                       |  |
+| **Pod**                | a hosted running container/containers                                            |  |
+| **Deployment**         | monitors the pod, if crashes , restarts them                                     |  |
+| **Service**            | a akubernetes service gives a easy to remember URL to access a running container |  |
+
+# Config Files
+
+- we create config files to create and configure objects(deployments, pods, services)
+- written in YAML syntax
+- These files are the documentations about what the kubernetes clusters are doing, so we will store the config files with our sourcecode(projects), this will be commited to git to store them in source control. It will let other engineers know about different diployment, services and pods i have created
+- DO NOT CREATE A RESOURCE OR OBJECT DIRECTLY AT THE TERMINAL FOR PRODUCTION ENVIRONMNET
