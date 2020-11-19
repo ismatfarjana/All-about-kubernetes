@@ -91,3 +91,11 @@ So , when the **event-bus** service is created, rather then going to different s
 - written in YAML syntax
 - These files are the documentations about what the kubernetes clusters are doing, so we will store the config files with our sourcecode(projects), this will be commited to git to store them in source control. It will let other engineers know about different diployment, services and pods i have created
 - DO NOT CREATE A RESOURCE OR OBJECT DIRECTLY AT THE TERMINAL FOR PRODUCTION ENVIRONMNET
+
+### commands:
+
+| Column 1                                       | Column 2                          | Column 3                             |
+| ---------------------------------------------- | --------------------------------- | ------------------------------------ |
+| to create an object with kubernetes            | **`kubectl apply -f posts.yaml`** |                                      |
+| to see all the pods running inside the cluster | **`kubectl get pods`**            | ![](https://i.imgur.com/YSMLHhp.png) |
+|  |
