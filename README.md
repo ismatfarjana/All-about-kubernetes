@@ -1,4 +1,4 @@
-# what is kubernete
+# What is kubernetes
 
 ## Ans:
 
@@ -10,13 +10,13 @@ Kubernete automaticaly:
 - manages the containers
 - creates communications between the containers
 
-# how to set up kubernete?
+# how to set up kubernetes?
 
 ## ans:
 
 ### Docker for Mac/windows
 
-set prefference kubenete enable in prefferenace
+set prefference kubenetes enable in prefferenace
 ![](https://i.imgur.com/HBsdFSO.png)
 ![](https://i.imgur.com/jMsXNJP.png)
 
@@ -49,15 +49,15 @@ set prefference kubenete enable in prefferenace
 - config file - holds directions for kubernetes
   - set up networking accessibility - make some copies of the service, make these copies accessible from network
 
-| Column 1                          | Column 2  | Column 3                                                                                  |                                                                                     |
-| --------------------------------- | --------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| give the config file to kubernete | `kubeclt` | interact with kubernetes cluster                                                          |
-|                                   |           | kubernetes cluster reads the config                                                       |
-|                                   |           | kubernetes try to find a copy of these image in the Docker daemon of my personal computer |
-|                                   |           | if not availabe localy, it looks in Docker hub                                            |
-|                                   |           | after finding                                                                             | kubernetes creates required amount of containers                                    |
-|                                   |           |                                                                                           | randomly distributes the containers among the <span style="color:blue">nodes</span> |
-|                                   |           |                                                                                           | each container will be hosted inside a <span style="color:green">pod</span>         |
+| Column 1                           | Column 2  | Column 3                                                                                  |                                                                                     |
+| ---------------------------------- | --------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| give the config file to kubernetes | `kubeclt` | interact with kubernetes cluster                                                          |
+|                                    |           | kubernetes cluster reads the config                                                       |
+|                                    |           | kubernetes try to find a copy of these image in the Docker daemon of my personal computer |
+|                                    |           | if not availabe localy, it looks in Docker hub                                            |
+|                                    |           | after finding                                                                             | kubernetes creates required amount of containers                                    |
+|                                    |           |                                                                                           | randomly distributes the containers among the <span style="color:blue">nodes</span> |
+|                                    |           |                                                                                           | each container will be hosted inside a <span style="color:green">pod</span>         |
 
 **_<span style="color:green">pod</span>_**: it wraps up container and can have multiple containers in it
 
