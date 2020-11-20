@@ -2,9 +2,9 @@
 
 ## Ans:
 
-Kubernetes is a tool for running diferent containes togather.
+Kubernete is a tool for running diferent containes togather.
 
-Kubernetes automaticaly:
+Kubernete automaticaly:
 
 - creates the containers
 - manages the containers
@@ -101,10 +101,52 @@ So , when the **event-bus** service is created, rather then going to different s
 | to run a command inside a container            | **`kubectl exec -it [pod_name] -- [cmd]`** | (startup a shell inside a container that is bein graninside the pod, add `sh` at the end ).execute a given command in a running pod ![](https://i.imgur.com/bT3hUCX.png) write `exit` to end the shell |
 | to print all the logs tied to a container      | **`kubectl logs [pod_name]`**              | prints logs from given pod ![](https://i.imgur.com/YhCom2d.png)                                                                                                                                        |
 | to get the information about running pod       | **`kubectl describe pod [pod_name]`**      | it will help debugging, for that look at the events log ![](https://i.imgur.com/Z1GyL7h.png)                                                                                                           |
+| to delete a pod                                | **`kubectl delete pod [pod_name]`**        |                                                                                                                                                                                                        |
+|                                                |                                            |                                                                                                                                                                                                        |
 
-|
-|to delete a pod| **`kubectl delete pod [pod_name]`**||
-||||
+# Deployment
+
+Pods are created with Deployment. Deployment is a kubernetes object that manage a set of pods
+
+## commands:
+
+| Column 1                                                          | Column 2                                      | Column 3                                                                      |
+| ----------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------- |
+| Creating Deployment                                               | **`kubectl apply -f posts-depl.yaml`**        | ![](https://i.imgur.com/jQpftyt.png)                                          |
+| list of running deployment                                        | **`kubectl get deployments`**                 | information about all pods in deployment ![](https://i.imgur.com/XqvNPum.png) |
+| deleting pod created by kubernetes : kubernees creats another one |                                               | ![](https://i.imgur.com/koPQyZE.png)                                          |
+| print details about deployment for debugging                      | **`kubectl describe deployment [depl-name]`** |                                                                               |
+| delete a deployment                                               | **`kubectl delete deployment [depl-name]`**   | deletes deplyment with all associated pods.not recreated anymore              |
+
+---
+
+# Update Image Used by Deployment:
+
+| Column 1     | Column 2                                                                                              | Advantage/ disadvantage                                                                                                                                                          |
+| ------------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Method 1** | \* change to project code                                                                             | everytime any new version created we need to come back and change the configuration in kubernetes deployment file and overtime this becomes hard cause this file will be so long |
+|              | _ rebuild the image , specifying a new image verison_ ![](https://i.imgur.com/jo8Ak4T.png)            |
+|              | \* in deployment config file , update the image version                                               |
+|              | \* run the command **`kubectl apply -f [depl file name]`** whe kubernetes deployment is build         |
+|              |                                                                                                       |                                                                                                                                                                                  |
+| **Method 2** | * the deployment must use *latest\* tage in the pod ![](https://i.imgur.com/8CqJIpw.png)              |                                                                                                                                                                                  |
+|              | \* Make an update to code ![](https://i.imgur.com/7AqvmeF.png)                                        |                                                                                                                                                                                  |
+|              | \* build image ![](https://i.imgur.com/fb0pRAi.png)                                                   |                                                                                                                                                                                  |
+|              | push image to docker hub ![](https://i.imgur.com/VFLT1yd.png)                                         |                                                                                                                                                                                  |
+|              | run command **`kubectl rollout restart deployment [depl-name]`** ![](https://i.imgur.com/hKbvYhi.png) |                                                                                                                                                                                  |
+|              |                                                                                                       |                                                                                                                                                                                  |
+
+# the whole process of updating file, image building and deploying into docker hub
+
+![](https://i.imgur.com/lV1oOEe.png)
+
+![](https://i.imgur.com/VEOvtKW.png)
+
+# ERROR HANDLING
+
+| ERROR                                                    | WHY THIS ERROR                                   | SOLUTION                                                                   |
+| -------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------- |
+| Cannt push On Docker![](https://i.imgur.com/a2KjQMC.png) | didnot used my dockerid while creating the image | used my dockerid while creating image ![](https://i.imgur.com/6r1Z8wF.png) |
 
 ---
 
