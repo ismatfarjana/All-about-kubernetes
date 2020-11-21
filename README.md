@@ -142,6 +142,62 @@ Pods are created with Deployment. Deployment is a kubernetes object that manage 
 
 ![](https://i.imgur.com/VEOvtKW.png)
 
+---
+
+# Networking with Services
+
+### Types of services
+
+| Column 1      | Column 2                                                          | Column 3                                              |
+| ------------- | ----------------------------------------------------------------- | ----------------------------------------------------- |
+| Cluster IP    | setup communication between different pods inside clusters        | will use regularly                                    |
+| Node Port     | this is used to access a pod from outside of cluster              | only for development purpuses                         |
+| Load Balancer | makes pod accessible from outside the cluster, like outside world | nearly similer to node port, but action is different. |
+| External Name | redirects an in-cluster req to a CNAME url.. dont know what it is |                                                       |
+
+#### Difference between Node Port and Load Balancer
+
+| Node Port                                                                   | Load Balancer                        |
+| --------------------------------------------------------------------------- | ------------------------------------ |
+| access a pod from outside of cluster: Development purpose, only for testing | access a pod from outside of cluster |
+
+## Creating NodePort and accessing Node Port services
+
+| Column 1              | Column 2                                                                       |
+| --------------------- | ------------------------------------------------------------------------------ |
+| create a service      | **`kubectl apply -f [service-name]`**                                          |  |
+| get all services      | **`kubectl get services`**![](https://i.imgur.com/fv9SFNR.png)                 |
+| details about service | **`kubectl describe services posts-srv`** ![](https://i.imgur.com/qwDxFHo.png) |
+
+## Create ClusterIP services
+
+| Column 1                              | Column 2                             |
+| ------------------------------------- | ------------------------------------ |
+| **`kubectl apply -f [service-name]`** | ![](https://i.imgur.com/eZB4ZvH.png) |
+| **`kubectl get services`**            | ![](https://i.imgur.com/QINs87E.png) |
+|                                       |                                      |
+
+## communicate between services
+
+write a url of http with the name of the clusterip service
+
+| Column 1                                                 | Column 2 | Column 3 |
+| -------------------------------------------------------- | -------- | -------- |
+| change the localhost to <service name> in files index.js | Text     | Text     |
+| update image by deployment                               |          |          |
+
+##### test on postman
+
+# Overall creating service and deployment
+
+![](https://i.imgur.com/ZUS1fny.png)
+
+# apply all
+
+![](https://i.imgur.com/eIDoNqY.png)
+
+![](https://i.imgur.com/TfxQlB7.png)
+
 # ERROR HANDLING
 
 | ERROR                                                    | WHY THIS ERROR                                   | SOLUTION                                                                   |
